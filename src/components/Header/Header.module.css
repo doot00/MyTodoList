@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Permanent Marker", serif;
+    font-weight: 800;
+    font-size: 2rem;
+    font-style: normal;
+    color: var(--color-point);
+    border-bottom: 2px solid var(--color-point);
+    padding: 0.5rem;
+    margin: 2rem;
+}
+
+.filters {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+}
+
+.filter {
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.8;
+    margin: 0.4rem;
+    background-color: transparent;
+    color: var(--color-point);
+    text-transform: capitalize;
+    border: none;
+}
+
+.filter:hover,
+.filter.seleted {
+    opacity: 1;
+}
+
+.filter.seleted::after {
+    content: '';
+    display: block;
+    margin-top: 0.2rem;
+    border: 1px solid var(--color-point);
+}
