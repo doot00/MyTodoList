@@ -4,14 +4,15 @@ import styles from './AddTodo.module.css';
 
 export default function AddTodo({ onAdd }) {
     const [text, setText] = useState('');
-    const handleChange = (e) => setText
+    const handleChange = (e) => setText(e.target.value);
     const handleSubmit = (e) => {
         e.preventDefault(); // 이벤트의 기본 동작을 막는 역할을 한다.
         if (text.trim().length === 0) { // 공백을 제거하기 위해
             return;
         }
-        onAdd({ id: uuidv4(), text, status: '해야할 일'});
-    }
+        onAdd({ id: uuidv4(), text, status: 'active'});
+        setText('');
+    };
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <input 

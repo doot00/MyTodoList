@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Todo.module.css';
-import { IoTrashBin } from 'react-icons/fa';
+import { IoMdTrash } from 'react-icons/io';
 
-export default function Todo({ todo, todoUpdate, todoDelete}) {
+export default function Todo({ todo, onUpdate, onDelete }) {
     const { id, text, status } = todo;
     const handleChange = (e) => {
-        const status = e.target.checked ? '완료된 일' : '해야할 일';
-        todoUpdate({ ...todo, status});
+        const updatestatus = e.target.checked ? 'complete' : 'active';
+        onUpdate({ ...todo, status: updatestatus});
     }; // status 값을 가져온다.
-    const handleDelete = () => todoDelete(todo);
+    const handleDelete = () => onDelete(todo);
 
     return (
         <li className={styles.todo}>
@@ -16,7 +16,7 @@ export default function Todo({ todo, todoUpdate, todoDelete}) {
                 className={styles.checkbox}
                 type='checkbox'
                 id={id}
-                checked={status === '완료된 일'}
+                checked={status === 'complete'}
                 onChange={handleChange}
             />
             <label htmlFor={id} className={styles.text}>
@@ -24,7 +24,7 @@ export default function Todo({ todo, todoUpdate, todoDelete}) {
             </label>
             <span className={styles.icon}>
                 <button onClick={handleDelete} className={styles.button}>
-        
+                    <IoMdTrash />
                 </button>
             </span>
         </li>

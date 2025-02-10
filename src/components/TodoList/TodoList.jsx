@@ -16,11 +16,12 @@ export default function TodoList({filter}) {
     }, [todos]);
 
     const filtered = allFilteredItems(todos, filter);
+    
     return (
         <section className={styles.container}>
             <ul className={styles.list}>
-                {filtered.map((list) => (
-                    <Todo key={list.id} todo={list} onUpdate={handleUpdate} onDelete={handleDelete}/> 
+                {filtered.map((item) => (
+                    <Todo key={item.id} todo={item} onUpdate={handleUpdate} onDelete={handleDelete}/> 
                 ))}
             </ul>
             <AddTodo onAdd={handleAdd}/>
@@ -29,6 +30,7 @@ export default function TodoList({filter}) {
 }
 
 function todosLocalStorage(){
+    console.log('readTodosFromLocalStorage');
     const todos = localStorage.getItem('todos');
     return todos ? JSON.parse(todos) : [];
 }
