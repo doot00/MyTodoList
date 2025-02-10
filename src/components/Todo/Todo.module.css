@@ -4,16 +4,36 @@
     align-items: center;
     padding: 1rem 1rem;
     margin: 0.1rem 0;
-    color: var(--color-point);
+    color: black;
     font-family: "Permanent Marker", serif;
     font-weight: 600;
     font-size: medium;
     
 }
 
-.checkbox {
-    width: 1rem;
-    height: 1rem;
+input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: gainsboro;
+    border-color: none;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '✔';
+    color: var(--color-point);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: 15px;
 }
 
 .text {
@@ -43,3 +63,4 @@
     color: var(--color-point);
     background-color: transparent;
 }
+

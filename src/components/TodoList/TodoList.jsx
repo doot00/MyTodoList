@@ -24,7 +24,9 @@ export default function TodoList({filter}) {
                     <Todo key={item.id} todo={item} onUpdate={handleUpdate} onDelete={handleDelete}/> 
                 ))}
             </ul>
+            <div className='none'>
             <AddTodo onAdd={handleAdd}/>
+            </div>
         </section>
     );
 }
